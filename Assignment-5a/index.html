@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Table Demo</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+    <style>
+        /* Background image for the entire page */
+        body {
+            background-image: url('Motivate-Your-Student.jpg');
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the image */
+        }
+        /* Style for the header */
+        .ui-header {
+            background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+            color: #333; /* Dark text color */
+        }
+        /* Style for table headers */
+        th {
+            background-color: rgba(96, 96, 163, 0.7); /* Semi-transparent background for header */
+            color: white; /* White text color */
+        }
+        /* Optional styling for the button and log area */
+        #log {
+            margin-top: 20px; /* Space above the log */
+            color: #6060a3; /* Match log color with header */
+        }
+    </style>
+</head>
+  
+<body>
+    <center>
+        <div data-role="page">
+            <h1 style="color:#6060a3;">Company Website</h1>
+            <h3>Company Information Table</h3>
+            <div data-role="header" id="GFG">
+                <div role="main" class="ui-content">
+                    <table data-role="table">
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Department</th>
+                                <th>Domain 1</th>
+                                <th>Domain 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AVENGERS</td>
+                                <td>SAMSUNG</td>
+                                <td><a href="https://pict.edu/" data-rel="external">PICT COLLEGE</a></td>
+                                <td><a href="https://moderncoe.edu.in/">MODERN COLLEGE</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <input type="button" id="Button" value="Value of the classes option">
+            <div id="log"></div>
+        </div>
+    </center>
+    <script>
+        $(document).ready(function () {
+            // Preload the image
+            const img = new Image();
+            img.src = 'Motivate-Your-Student.jpg'; // Ensure the path is correct
+
+            $("#GFG").table({
+                classes: {
+                    "classes.Name": "GeeksforGeeks"
+                }
+            });
+            $("#GFG").table("option", "classes.Name", "GeeksforGeeks");
+            $("#Button").on('click', function () {
+                var a = $("#GFG").table("option", "classes.Name");
+                $("#log").html(a);
+            });
+        });
+    </script>
+</body>
+  
+</html>
